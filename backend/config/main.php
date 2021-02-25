@@ -11,6 +11,9 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'aliases' => [
+		'@adminlte/widgets'=>'@vendor/adminlte/yii2-widgets'
+    	],
     'modules' => [],
     'components' => [
         'request' => [
@@ -37,14 +40,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
