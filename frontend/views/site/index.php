@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
    
 
     <!-- Hero Section Begin -->
-    <section class="hero spad set-bg" data-setbg="/img/hero-bg.png">
+    <section class="hero spad set-bg " data-setbg="img/hero-bg.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -47,7 +47,7 @@ $this->title = 'My Yii Application';
                 <div class="event__slider owl-carousel">
                     <div class="col-lg-4">
                         <div class="event__item">
-                            <div class="event__item__pic set-bg" data-setbg="img/events/event-1.jpg">
+                            <div class="event__item__pic set-bg" data-setbg="/../img/events/event-1.jpg">
                                 <div class="tag-date">
                                     <span>Dec 15, 2019</span>
                                 </div>
@@ -60,7 +60,7 @@ $this->title = 'My Yii Application';
                     </div>
                     <div class="col-lg-4">
                         <div class="event__item">
-                            <div class="event__item__pic set-bg" data-setbg="img/events/event-2.jpg">
+                            <div class="event__item__pic set-bg" data-setbg="./../img/events/event-2.jpg">
                                 <div class="tag-date">
                                     <span>Dec 15, 2019</span>
                                 </div>
@@ -73,7 +73,7 @@ $this->title = 'My Yii Application';
                     </div>
                     <div class="col-lg-4">
                         <div class="event__item">
-                            <div class="event__item__pic set-bg" data-setbg="img/events/event-3.jpg">
+                            <div class="event__item__pic set-bg" data-setbg="./../img/events/event-3.jpg">
                                 <div class="tag-date">
                                     <span>Dec 15, 2019</span>
                                 </div>
@@ -86,7 +86,7 @@ $this->title = 'My Yii Application';
                     </div>
                     <div class="col-lg-4">
                         <div class="event__item">
-                            <div class="event__item__pic set-bg" data-setbg="web/img/events/event-2.jpg">
+                            <div class="event__item__pic set-bg" data-setbg="./../img/events/event-2.jpg">
                                 <div class="tag-date">
                                     <span>Dec 15, 2019</span>
                                 </div>
@@ -109,7 +109,7 @@ $this->title = 'My Yii Application';
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about__pic">
-                        <img src="web/img/about/about.png" alt="">
+                        <img src="./../img/about/about.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -134,7 +134,7 @@ $this->title = 'My Yii Application';
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 p-0">
-                    <div class="services__left set-bg" data-setbg="img/services/service-left.jpg">
+                    <div class="services__left set-bg" data-setbg="./../img/services/service-left.jpg">
                         <a href="https://www.youtube.com/watch?v=JGwWNGJdvx8" class="play-btn video-popup"><i class="fa fa-play"></i></a>
                     </div>
                 </div>
@@ -142,28 +142,28 @@ $this->title = 'My Yii Application';
                     <div class="row services__list">
                         <div class="col-lg-6 p-0 order-lg-1 col-md-6 order-md-1">
                             <div class="service__item deep-bg">
-                                <img src="img/services/service-1.png" alt="">
+                                <img src="./../img/services/service-1.png" alt="">
                                 <h4>Wedding</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 p-0 order-lg-2 col-md-6 order-md-2">
                             <div class="service__item">
-                                <img src="img/services/service-2.png" alt="">
+                                <img src="./../img/services/service-2.png" alt="">
                                 <h4>Clubs and bar</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 p-0 order-lg-4 col-md-6 order-md-4">
                             <div class="service__item deep-bg">
-                                <img src="img/services/service-4.png" alt="">
+                                <img src="./../img/services/service-4.png" alt="">
                                 <h4>DJ lessons</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 p-0 order-lg-3 col-md-6 order-md-3">
                             <div class="service__item">
-                                <img src="img/services/service-3.png" alt="">
+                                <img src="./../img/services/service-3.png" alt="">
                                 <h4>Corporate events</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
                             </div>
@@ -408,7 +408,7 @@ $this->title = 'My Yii Application';
                 </div>
                 <div class="col-lg-5 p-0">
                     <div class="track__pic">
-                        <img src="img/track-right.jpg" alt="">
+                        <img src="./../img/track-right.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -430,7 +430,7 @@ $this->title = 'My Yii Application';
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="youtube__item">
-                        <div class="youtube__item__pic set-bg" data-setbg="img/youtube/youtube-1.jpg">
+                        <div class="youtube__item__pic set-bg" data-setbg="./../img/youtube/youtube-1.jpg">
                             <a href="https://www.youtube.com/watch?v=yJg-Y5byMMw?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
                         </div>
                         <div class="youtube__item__text">
@@ -440,7 +440,7 @@ $this->title = 'My Yii Application';
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="youtube__item">
-                        <div class="youtube__item__pic set-bg" data-setbg="img/youtube/youtube-2.jpg">
+                        <div class="youtube__item__pic set-bg" data-setbg="./../img/youtube/youtube-2.jpg">
                             <a href="https://www.youtube.com/watch?v=K4DyBUG242c?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
                         </div>
                         <div class="youtube__item__text">
@@ -450,7 +450,7 @@ $this->title = 'My Yii Application';
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="youtube__item">
-                        <div class="youtube__item__pic set-bg" data-setbg="img/youtube/youtube-3.jpg">
+                        <div class="youtube__item__pic set-bg" data-setbg="./../img/youtube/youtube-3.jpg">
                             <a href="https://www.youtube.com/watch?v=S19UcWdOA-I?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
                         </div>
                         <div class="youtube__item__text">
@@ -464,7 +464,7 @@ $this->title = 'My Yii Application';
     <!-- Youtube Section End -->
 
     <!-- Countdown Section Begin -->
-    <section class="countdown spad set-bg" data-setbg="img/countdown-bg.jpg">
+    <section class="countdown spad set-bg" data-setbg="./../img/countdown-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

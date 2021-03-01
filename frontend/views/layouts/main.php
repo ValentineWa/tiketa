@@ -33,7 +33,7 @@ AppAsset::register($this);
    <div class="row">
        <div class="col-lg-2 col-md-2">
            <div class="header__logo">
-               <a href="./index.html"><img src="img/logo.png" alt=""></a>
+               <a href="./index.html"><img src="./../img/logo.png" alt=""></a>
            </div>
        </div>
        <div class="col-lg-10 col-md-10">
@@ -41,8 +41,8 @@ AppAsset::register($this);
                <nav class="header__menu mobile-menu">
                    <ul>
                        <li class="active"><a href="./index.html">Home</a></li>
-                       <li><a href="./about.html">About</a></li>
-                       <li><a href="./discography.html">Discography</a></li>
+                       <li><a href="./about.html">This Weekend</a></li>
+                       <li><a href="./discography.html">Events</a></li>
                        <li><a href="./tours.html">Tours</a></li>
                        <li><a href="./videos.html">Videos</a></li>
                        <li><a href="#">Pages</a>
@@ -83,7 +83,7 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p> -->
 
          <!-- Footer Section Begin -->
-    <footer class="footer spad set-bg" data-setbg="img/footer-bg.png">
+    <footer class="footer spad set-bg" data-setbg="./../img/footer-bg.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
