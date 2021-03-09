@@ -39,6 +39,12 @@ use yii\helpers\Url;
                             'url' => ['/'], 'active' => $this->context->route == 'site/index'
                         ],
                         [
+                            'label' => 'Events',
+                            'icon' => 'fa fa-plus-square',
+                            'url' => ['/events'],
+                            'active' => $this->context->route == 'events/index',
+                        ],
+                        [
                             'label' => 'Master',
                             'icon' => 'fa fa-database',
                             'url' => '#',

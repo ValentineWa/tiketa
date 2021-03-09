@@ -1,0 +1,168 @@
+/* footer */
+
+.foot{
+  background-color: #000000;
+  
+}
+.footer{
+  height: 1px;
+}
+#social p{
+  display: inline;
+ align-items: center;
+  padding-right: 20px;
+  padding-top: 1rem;
+ 
+}
+.social p{
+    display: inline;
+    padding: 10px;
+}
+.social.a:link {
+  color: #000000;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* end footer */
+/* container4 */
+.wed{
+  
+  background-color: #5400BC ;
+  color: #ffffff;
+}
+.dew{
+  background-color: #5C00CE;
+  color: #ffffff;
+}
+/* general */
+.baton{
+  background-color: #5C00CE;
+  color: #ffffff;
+}
+.maka{
+  color: #5C00CE;
+}
+.tex{
+  text-align: center;
+}
+/* carousel */
+
+/* div.tag-date {
+  height: 35px;
+  width: 180px;
+  background-color: #5400BC;
+  position: absolute;
+  centered: 48px;
+  right: -6px;
+  text-align: center;
+  color: #FFF;
+  font-weight: 600;
+  font-size: 24px;
+  white-space: nowrap;
+-webkit-transform: rotate(35deg);
+  -moz-transform: rotate(35deg);
+  -ms-transform: rotate(35deg);
+  -o-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.tag-date:before {
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 37px;
+  border-left-width: 53px;
+  border-right-width: 26px;
+  content: "";
+  display: block;
+  left: -49px;
+  position: absolute;
+  width: 141%;
+  border-top-width: 0px;
+  border-bottom-color: #9c1b21;
+  top: -2px;
+  z-index: -1;
+} */
+/* .event__item__pic .tag-date {
+	position: absolute;
+	left: 0;
+	bottom: -21px;
+	width: 100%;
+	text-align: center;
+}
+
+.event__item__pic .tag-date span {
+	font-size: 15px;
+	color: #ffffff;
+	display: inline-block;
+	background: #5c00ce;
+	padding: 12px 8px 9px 20px;
+} */
+.tag-date {
+  background-color: #5C00CE;
+  color: white;
+  font-size: 12px;
+  padding: 4px 7px;
+}
+.middle {
+  
+  position: absolute;
+  bottom: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* end carousel */
+/* grid */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 8px;
+}
+
+.column img {
+  margin-top: 10px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.categ:hover{
+  transform: scale(1.10);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06); background: #8645D6
+}
+
+
+/* end grid */
+/* youtube section */
+.yutub:hover{
+  transform: scale(1.10);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06); background: #8645D6
+  
+}
+/* end youtube section */
