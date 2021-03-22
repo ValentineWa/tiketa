@@ -13,7 +13,7 @@ use Yii;
  * @property string $ticketNumber
  * @property string $ticketDate
  * @property string $status
- * @property string $qrCode
+ * @property string|null $qrCode
  *
  * @property Events $event
  * @property Ticketcategory $tcategory
@@ -34,7 +34,7 @@ class Tickets extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['eventId', 'tcategoryId', 'ticketNumber', 'ticketDate', 'status', 'qrCode'], 'required'],
+            [['eventId', 'tcategoryId', 'ticketNumber', 'ticketDate', 'status'], 'required'],
             [['eventId', 'tcategoryId'], 'integer'],
             [['ticketDate'], 'safe'],
             [['status'], 'string'],

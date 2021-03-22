@@ -14,10 +14,13 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/style.css',
-        // 'css/nav.css',
+        'css/nav.css',
     ];
     public $js = [
         'js/slider.js',
+        'js/custom.js',
+        'js/qrcode.js',
+        'js/instascan.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

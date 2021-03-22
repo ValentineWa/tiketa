@@ -11,7 +11,10 @@ use Yii;
  * @property string $tcategoryName
  * @property string $description
  * @property float $ticketPrice
+ * @property string $status
+ * @property int $eventId
  *
+ * @property Events $event
  * @property Tickets[] $tickets
  */
 class Ticketcategory extends \yii\db\ActiveRecord
@@ -30,9 +33,12 @@ class Ticketcategory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tcategoryName', 'description', 'ticketPrice'], 'required'],
+            [['tcategoryName', 'description', 'ticketPrice', 'status', 'eventId'], 'required'],
             [['ticketPrice'], 'number'],
+            [['status'], 'string'],
+            [['eventId'], 'integer'],
             [['tcategoryName', 'description'], 'string', 'max' => 255],
+            [['eventId'], 'exist', 'skipOnError' => true, 'targetClass' => Events::className(), 'targetAttribute' => ['eventId' => 'eventId']],
         ];
     }
 
@@ -46,7 +52,19 @@ class Ticketcategory extends \yii\db\ActiveRecord
             'tcategoryName' => 'Tcategory Name',
             'description' => 'Description',
             'ticketPrice' => 'Ticket Price',
+            'status' => 'Status',
+            'eventId' => 'Event ID',
         ];
+    }
+
+    /**
+     * Gets query for [[Event]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEvent()
+    {
+        return $this->hasOne(Events::className(), ['eventId' => 'eventId']);
     }
 
     /**

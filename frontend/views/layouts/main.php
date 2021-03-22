@@ -31,21 +31,25 @@ AppAsset::register($this);
 
 <div class="wrap">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class="navbar-brand" href="#">TIKETA
+<a class="navbar-brand mx-4" href="#">TIKETA
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item active ">
+        <a class="nav-link " href="site/index">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">This Weekend</a>
+        <a class="nav-link" href="site/allevent">This Weekend</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Events</a>
+        <a class="nav-link" href="site/allevent">Events</a>
+      </li>
+   
+      <li class="nav-item">
+        <a class="nav-link" href="site/about">About</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -98,7 +102,7 @@ AppAsset::register($this);
     <div class="container ">
        <div class="row">
          <div class="col-md-4">
-         <p><img src="<?= Yii::$app->request->baseUrl ?>/images/logo.png" width="160" height="160" class="rounded-circle"></p>
+         <p><a href="site/index"><img src="<?= Yii::$app->request->baseUrl ?>/images/logo.png" width="160" height="160" class="rounded-circle"></a></p>
          <div class="social">
                             <a href="facebook.com"><i class="fa fa-facebook fa-2x mx-2"></i></a>
                             <a href="twitter.co#"><i class="fa fa-twitter fa-2x mx-2"></i></a>

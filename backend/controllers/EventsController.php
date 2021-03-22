@@ -10,7 +10,11 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\models\Eventcategory;
 use common\models\Poster;
-
+use yii\web\UploadedFile;
+use common\models\Ticketcategory;
+use common\models\Cart;
+use common\models\Cartitems;
+ 
 /**
  * EventsController implements the CRUD actions for Events model.
  */
@@ -69,7 +73,7 @@ class EventsController extends Controller
         $model = new Events();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'id' => $model->eventId]);
+            return $this->redirect(['addposter', 'eventId' => $model->eventId]);
         }
 
         return $this->render('create', [
@@ -91,13 +95,14 @@ class EventsController extends Controller
             $model->imagePath->saveAs('uploads/.'.$imageName.'.'.$model->imagePath->extension);
             //save in the db
             $model->imagePath='uploads/'.$imageName.'.'.$model->imagePath->extension;
-            $model->save(false);
+            $model->save();
         
             return $this->redirect(['index']);
         }
             return $this->render('addposter', [
                 'model' => $model,
-                'eventId' =>$eventId,
+                'eventId' => $eventId,
+            
                
              
 
@@ -121,6 +126,36 @@ public function actionEcategory()
             
         ]);
     }
+    public function actionScan()
+    {
+        return $this->render('scan');
+    }
+
+public function actionTcateg()
+{
+    $model = new \common\models\Ticketcategory();
+
+    if ($model->load(Yii::$app->request->post())) {
+        
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save();
+
+     return $this->redirect(['index']);
+
+        }
+    }
+
+    return $this->render('tcateg', [
+        'model' => $model,
+    ]);
+}
+
+
+public function actionCart()
+{
+    return $this->render('cart');
+}
+
     /**
      * Updates an existing Events model.
      * If update is successful, the browser will be redirected to the 'view' page.

@@ -8,15 +8,23 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Events';
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="events-index">
+<div class="row">
+<div class="col-md-4">  <p>
+        <?= Html::a('1.New Event Category', ['ecategory'], ['class' => 'btn btn-primary']) ?>
+    </p></div>
+<div class="col-md-4"> <p>
+        <?= Html::a('2.Create Events', ['create'], ['class' => 'btn btn-success']) ?>
+    </p></div>
+    <div class="col-md-4"> <p>
+        <?= Html::a('4.Create Ticket', ['tcateg'], ['class' => 'btn btn-warning']) ?>
+    </p></div>
+    </div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Events', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+  
+  
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -39,6 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
 
 
 </div>

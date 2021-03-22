@@ -9,7 +9,7 @@ use Yii;
  *
  * @property int $transId
  * @property string|null $merchantrequestId
- * @property int $walletId
+ * @property int $cartId
  * @property float $transAmount
  * @property string $details
  * @property string|null $reciept
@@ -18,6 +18,9 @@ use Yii;
  * @property int|null $status
  * @property int $phoneCode
  * @property int $mpesaNumber
+ *
+ * @property User $createdBy0
+ * @property Cart $cart
  */
 class Deposit extends \yii\db\ActiveRecord
 {
@@ -35,12 +38,14 @@ class Deposit extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['walletId', 'transAmount', 'details', 'createdBy', 'phoneCode', 'mpesaNumber'], 'required'],
-            [['walletId', 'createdBy', 'status', 'phoneCode', 'mpesaNumber'], 'integer'],
+            [['cartId', 'transAmount', 'details', 'createdBy', 'phoneCode', 'mpesaNumber'], 'required'],
+            [['cartId', 'createdBy', 'status', 'phoneCode', 'mpesaNumber'], 'integer'],
             [['transAmount'], 'number'],
             [['details'], 'string'],
             [['transDate'], 'safe'],
             [['merchantrequestId', 'reciept'], 'string', 'max' => 255],
+            [['createdBy'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['createdBy' => 'id']],
+            [['cartId'], 'exist', 'skipOnError' => true, 'targetClass' => Cart::className(), 'targetAttribute' => ['cartId' => 'cartId']],
         ];
     }
 
@@ -52,7 +57,7 @@ class Deposit extends \yii\db\ActiveRecord
         return [
             'transId' => 'Trans ID',
             'merchantrequestId' => 'Merchantrequest ID',
-            'walletId' => 'Wallet ID',
+            'cartId' => 'Cart ID',
             'transAmount' => 'Trans Amount',
             'details' => 'Details',
             'reciept' => 'Reciept',
@@ -62,5 +67,25 @@ class Deposit extends \yii\db\ActiveRecord
             'phoneCode' => 'Phone Code',
             'mpesaNumber' => 'Mpesa Number',
         ];
+    }
+
+    /**
+     * Gets query for [[CreatedBy0]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCreatedBy0()
+    {
+        return $this->hasOne(User::className(), ['id' => 'createdBy']);
+    }
+
+    /**
+     * Gets query for [[Cart]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCart()
+    {
+        return $this->hasOne(Cart::className(), ['cartId' => 'cartId']);
     }
 }

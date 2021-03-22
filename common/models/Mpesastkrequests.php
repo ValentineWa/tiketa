@@ -11,7 +11,7 @@ use Yii;
  * @property string $phone
  * @property float $amount
  * @property string $reference
- * @property int $walletId
+ * @property int $cartId
  * @property string $description
  * @property string $status
  * @property int $complete
@@ -20,7 +20,7 @@ use Yii;
  * @property string|null $created_at
  * @property string|null $updated_at
  *
- * @property Wallet $wallet
+ * @property Cart $cart
  * @property User $user
  */
 class Mpesastkrequests extends \yii\db\ActiveRecord
@@ -39,14 +39,14 @@ class Mpesastkrequests extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['MerchantRequestID', 'phone', 'amount', 'reference', 'walletId', 'description', 'CheckoutRequestID'], 'required'],
+            [['MerchantRequestID', 'phone', 'amount', 'reference', 'cartId', 'description', 'CheckoutRequestID'], 'required'],
             [['amount'], 'number'],
-            [['walletId', 'complete', 'userId'], 'integer'],
+            [['cartId', 'complete', 'userId'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['MerchantRequestID', 'phone', 'reference', 'description', 'status', 'CheckoutRequestID'], 'string', 'max' => 191],
             [['MerchantRequestID'], 'unique'],
             [['CheckoutRequestID'], 'unique'],
-            [['walletId'], 'exist', 'skipOnError' => true, 'targetClass' => Wallet::className(), 'targetAttribute' => ['walletId' => 'walletId']],
+            [['cartId'], 'exist', 'skipOnError' => true, 'targetClass' => Cart::className(), 'targetAttribute' => ['cartId' => 'cartId']],
             [['userId'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['userId' => 'id']],
         ];
     }
@@ -61,7 +61,7 @@ class Mpesastkrequests extends \yii\db\ActiveRecord
             'phone' => 'Phone',
             'amount' => 'Amount',
             'reference' => 'Reference',
-            'walletId' => 'Wallet ID',
+            'cartId' => 'Cart ID',
             'description' => 'Description',
             'status' => 'Status',
             'complete' => 'Complete',
@@ -73,13 +73,13 @@ class Mpesastkrequests extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Wallet]].
+     * Gets query for [[Cart]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getWallet()
+    public function getCart()
     {
-        return $this->hasOne(Wallet::className(), ['walletId' => 'walletId']);
+        return $this->hasOne(Cart::className(), ['cartId' => 'cartId']);
     }
 
     /**

@@ -42,7 +42,13 @@ use yii\helpers\Url;
                             'label' => 'Events',
                             'icon' => 'fa fa-plus-square',
                             'url' => ['/events'],
-                            'active' => $this->context->route == 'events/index',
+                            'active' => $this->context->route == 'events/view',
+                        ],
+                        [
+                            'label' => 'Scan',
+                            'icon' => 'fa fa-plus-square',
+                            'url' => ['/events/scan'],
+                            'active' => $this->context->route == 'events/scan',
                         ],
                         [
                             'label' => 'Master',

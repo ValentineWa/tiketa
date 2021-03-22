@@ -14,6 +14,10 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Cart;
+use common\models\Cartitems;
+use common\models\Events;
+use Mpdf\Mpdf; 
 
 /**
  * Site controller
@@ -112,6 +116,62 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
+    public function actionAddtocart($eventid,$userid,$quantity)
+    {
+        $checkcart = Cart::find()->where(['userId'=>$userid])->andWhere(['status'=>'Active'])->asArray()->one();
+        if(empty($checkcart)){
+            if($this->createCart($userid,$eventid,$quantity)){
+                return json_encode('true');
+            }
+            
+        }else {
+            $this->createCartItems($checkcart['cartId'],$eventid,$quantity);
+        }
+         
+    }
+    
+    public function createCart($userid,$eventid,$quantity){
+        $model = New Cart();
+        $data = ['Cart'=>['userId'=>$userid,'total'=>0,'status'=>'Active']];
+        if($model->load($data) && $model->save()){
+            $this->createCartItems($model->cartId,$eventid,$quantity);
+        }
+        return false;
+    }
+    public function createCartItems($cartid,$eventid,$quantity){
+        $model = New Cartitems();
+        $data = ['Cartitems'=>['cartId'=>$cartid,'eventId'=>$eventid,'quantity'=>$quantity]];
+            if($model->load($data) && $model->save()){
+            return true;
+        }
+        return false;
+    }
+
+
+    public function actionViewpdf($id)
+    {
+     
+           $pdfcontent= $this->renderPartial('viewpdf', [
+            'model' => $this->findModel($id),
+        ]);
+        
+        $mpdf = new Mpdf();
+        $mpdf->WriteHtml($pdfcontent);
+        $mpdf->Output(); 
+        exit;
+      
+      
+    }
+    // public function actionView($cartId)
+    // {
+    //     return $this->render('view', [
+    //         'model' => $this->findModel($cartId),
+    //     ]);
+    // }
+    public function actionView()
+    {
+        return $this->render('view');
+    }
     /**
      * Displays contact page.
      *
@@ -143,6 +203,14 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    public function actionAllevent()
+    {
+        return $this->render('allevent');
+    }
+    public function actionSingle()
+    {
+        return $this->render('single');
     }
 
     /**

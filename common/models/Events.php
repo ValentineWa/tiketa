@@ -12,15 +12,18 @@ use Yii;
  * @property string $description
  * @property string $location
  * @property string $time
+ * @property float $eventPrice
  * @property int $ecategoryId
  * @property string $etype
  * @property string $createdAt
  * @property int $createdBy
+ * @property string $evenDate
  *
+ * @property Cartitems[] $cartitems
  * @property User $createdBy0
  * @property Eventcategory $ecategory
  * @property Poster[] $posters
- * @property Tickets[] $tickets
+ * @property Titem[] $titems
  */
 class Events extends \yii\db\ActiveRecord
 {
@@ -38,11 +41,12 @@ class Events extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['eventName', 'description', 'location', 'time', 'ecategoryId', 'etype', 'createdBy'], 'required'],
-            [['time', 'createdAt'], 'safe'],
+            [['eventName', 'description', 'location', 'time', 'eventPrice', 'ecategoryId', 'etype', 'createdBy', 'evenDate'], 'required'],
+            [['eventPrice'], 'number'],
             [['ecategoryId', 'createdBy'], 'integer'],
             [['etype'], 'string'],
-            [['eventName', 'description'], 'string', 'max' => 255],
+            [['createdAt'], 'safe'],
+            [['eventName', 'description', 'time', 'evenDate'], 'string', 'max' => 255],
             [['location'], 'string', 'max' => 100],
             [['createdBy'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['createdBy' => 'id']],
             [['ecategoryId'], 'exist', 'skipOnError' => true, 'targetClass' => Eventcategory::className(), 'targetAttribute' => ['ecategoryId' => 'ecategoryId']],
@@ -60,11 +64,23 @@ class Events extends \yii\db\ActiveRecord
             'description' => 'Description',
             'location' => 'Location',
             'time' => 'Time',
+            'eventPrice' => 'Event Price',
             'ecategoryId' => 'Ecategory ID',
             'etype' => 'Etype',
             'createdAt' => 'Created At',
             'createdBy' => 'Created By',
+            'evenDate' => 'Even Date',
         ];
+    }
+
+    /**
+     * Gets query for [[Cartitems]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCartitems()
+    {
+        return $this->hasMany(Cartitems::className(), ['eventId' => 'eventId']);
     }
 
     /**
@@ -98,12 +114,12 @@ class Events extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Tickets]].
+     * Gets query for [[Titems]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getTickets()
+    public function getTitems()
     {
-        return $this->hasMany(Tickets::className(), ['eventId' => 'eventId']);
+        return $this->hasMany(Titem::className(), ['eventId' => 'eventId']);
     }
 }

@@ -18,8 +18,11 @@ $baseUrl    = $asset->baseUrl;
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" rel="nofollow"></script>
+<script type="text/javascript"></script> 
+ 
+     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -42,6 +45,8 @@ $baseUrl    = $asset->baseUrl;
 </footer-->
 
 <?php $this->endBody() ?>
+
+  
 </body>
 </html>
 <?php $this->endPage() ?>
