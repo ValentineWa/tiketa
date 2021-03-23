@@ -1,9 +1,15 @@
 <?php
 
+use yii\bootstrap\Modal;
+use common\models\Events;
+use common\models\Eventcategory;
 /* @var $this yii\web\View */
 
 $this->title = 'TIKETA DASHBOARD ';
+$toto = Events::find()->asArray()->all();
+$tito = Eventcategory::find()->asArray()->all();
 ?>
+
 <div class="site-index">
 
 </div>
@@ -14,8 +20,8 @@ $this->title = 'TIKETA DASHBOARD ';
 <div class="info-box bg-red">
   <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
   <div class="info-box-content">
-    <span class="info-box-text">Likes</span>
-    <span class="info-box-number">41,410</span>
+    <span class="info-box-text">Total Events</span>
+    <span class="info-box-number"><?= count($toto)?></span>
     <!-- The progress section is optional -->
     <div class="progress">
       <div class="progress-bar" style="width: 70%"></div>
@@ -34,8 +40,8 @@ $this->title = 'TIKETA DASHBOARD ';
 <div class="info-box bg-red">
   <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
   <div class="info-box-content">
-    <span class="info-box-text">Likes</span>
-    <span class="info-box-number">41,410</span>
+    <span class="info-box-text">Total Categories</span>
+    <span class="info-box-number"><?= count($tito)?></span>
     <!-- The progress section is optional -->
     <div class="progress">
       <div class="progress-bar" style="width: 70%"></div>

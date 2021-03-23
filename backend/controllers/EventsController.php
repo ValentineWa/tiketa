@@ -92,7 +92,7 @@ class EventsController extends Controller
             $imageName = bin2hex(openssl_random_pseudo_bytes(10));
             $model->imagePath = UploadedFile::getInstance($model, 'imagePath');
             //saves file in the root directory
-            $model->imagePath->saveAs('uploads/.'.$imageName.'.'.$model->imagePath->extension);
+            $model->imagePath->saveAs('uploads/'.$imageName.'.'.$model->imagePath->extension);
             //save in the db
             $model->imagePath='uploads/'.$imageName.'.'.$model->imagePath->extension;
             $model->save();

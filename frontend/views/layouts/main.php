@@ -4,6 +4,8 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+
+use yii\helpers\Url;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -42,50 +44,45 @@ AppAsset::register($this);
         <a class="nav-link " href="site/index">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="site/allevent">This Weekend</a>
+        <a class="nav-link" href="/allevent">This Weekend</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="site/allevent">Events</a>
       </li>
-   
+    
       <li class="nav-item">
         <a class="nav-link" href="site/about">About</a>
       </li>
+      <?php if(\Yii::$app->user->can('admin')) {?>
+        <li class="nav-item">
+        <a class="nav-link" href=" <?=Url::to(['/../../../../tiketa/backend/web'])?>">Dashboard</a>
+       
+      </li>
+        <?php }?>
+     
+
+  <?php if (Yii::$app->user->isGuest ){?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Event Categories
+          User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <a class="dropdown-item" a href="<?=Url::to(['site/signup'])?>"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up</a>
+        <a class="dropdown-item" href="site/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Log In</a>
         </div>
       </li>
+      <?php }else if(Yii::$app->user) {?>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          User
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item"> Hi <?= ucfirst(Yii::$app->user->identity->username)?> !</a>
+        <a class="dropdown-item" href="site/logout"><i class="fas fa-sign-out-alt"></i>Log Out</a> </div>
+      </li>
+      <?php } ?>
     </ul>
-    <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item">
-        <a class="nav-link waves-effect waves-light">
-          <i class="fa fa-twitter"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-effect waves-light">
-          <i class="fa fa-google-plus-g"></i>
-        </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-user"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-default"
-          aria-labelledby="navbarDropdownMenuLink-333">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
+   
   </div>
 </nav>
 

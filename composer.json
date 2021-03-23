@@ -20,7 +20,8 @@
         "yiisoft/yii2-bootstrap4": "^2.0",
         "dmstr/yii2-adminlte-asset": "^2.1",
         "2amigos/yii2-date-picker-widget": "~1.0",
-        "mpdf/mpdf": "^8.0"
+        "mpdf/mpdf": "^8.0",
+        "yii2mod/yii2-rbac": "*"
         
     },
     "require-dev": {

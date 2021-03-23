@@ -18,9 +18,7 @@ $this->title = 'Events';
 <div class="col-md-4"> <p>
         <?= Html::a('2.Create Events', ['create'], ['class' => 'btn btn-success']) ?>
     </p></div>
-    <div class="col-md-4"> <p>
-        <?= Html::a('4.Create Ticket', ['tcateg'], ['class' => 'btn btn-warning']) ?>
-    </p></div>
+   
     </div>
 
   
@@ -44,7 +42,9 @@ $this->title = 'Events';
             //'createdAt',
             //'createdBy',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            
+            
+            
         ],
     ]); ?>
 

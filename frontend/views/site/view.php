@@ -8,7 +8,7 @@ use common\models\Ticketcategory;
 
 
         <input type="hidden" id="valor" value="facebook.com">
-        <button onClick="createQrCode()">Gerar QR Code</button>
+        <button onClick="createQrCode()">Get QR Code</button>
         <div id="qrcode"></div>
 
     <script>

@@ -37,34 +37,33 @@ $tik = Events::find()->joinWith('posters')->all();
    </div>
    <div class="taim">
     <h3><i class="fa fa-clock-o aicon fa-lg mr-4" aria-hidden="true"></i>Time</h3>
-    <p> <?= $tiko->time  ?>
-    <?= $tiko->evenDate  ?> </p>
+    <p> <?= $tiko->time  ?></p>
+   <p> <?= $tiko->evenDate  ?> </p>
    </div>
    <div class="row">
   
    <div class="col-md-6 quantity">
-   <dl class="param param-inline">
-			  <dt>Quantity: </dt>
-			  <dd>
+   
+	 <h4><i class="fa fa-ticket fa-lg mr-3 aicon" aria-hidden="true"></i>Ticket Quantity: </h4>
+			
 			  <select id="quantity_<?= $tiko->eventId?>" class="form-control form-control-sm quantity" style="width:70px;">
 			  		<option> 1 </option>
 			  		<option> 2 </option>
-			  		<option> 2 </option>
+			  		<option> 3 </option>
 
 			  				  	</select> 
-			  </dd>
-			</dl>  
+      <h3>Total</h3>
+    <p>Kes. <?= $tiko->eventPrice  ?>
+    
        </div>
  
    <div class="col-md-6">
  
-    <h3>Total</h3>
-    <p>Kes. <?= $tiko->eventPrice  ?>
-    
+   <a href="#"  baseUrl="<?= Yii::$app->request->baseUrl?>" eventid="<?= $tiko->eventId?>" userid="<?= Yii::$app->user->id?>" class="btn btn-lg btn-primary text-uppercase addtocart">Purchase </a>
+      
   
    </div>
-   <a href="#"  baseUrl="<?= Yii::$app->request->baseUrl?>" eventid="<?= $tiko->eventId?>" userid="<?= Yii::$app->user->id?>" class="btn btn-lg btn-outline-primary text-uppercase addtocart"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
-       
+    
    </div>
  
 
@@ -79,15 +78,18 @@ $tik = Events::find()->joinWith('posters')->all();
 
 <!-- payment option -->
 <div class="row">
- <div class="col-md-12">
+<div class="col-md-3"></div>
+ <div class="col-md-6 mt-4">
  <form>
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Enter mpesa number">
-    
+    <button type="button" class="btn btn-secondary btn-lg baton rounded-0 mx-5 my-5" onclick="window.location.href='site/view'">Mpesa Checkout</button></p>
+
   </div>
-  <button type="submit" class="btn paym text-white">Mpesa Checkout</button>
-  <button type="button" class="btn btn-secondary btn-lg baton rounded-0 mx-5 my-5" onclick="window.location.href='site/viewpdf'">Mpesa Checkout</button></p>
-   </form>
+
+     </form>
+ </div>
+ <div class="col-md-3">
  </div>
  
 </div>

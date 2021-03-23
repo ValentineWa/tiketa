@@ -54,8 +54,10 @@ $party = Events::find()->joinWith('posters')->all();
       <div class="col-md-3">
         <div class="card mb-2">
         <a href="<?= Url::to(['site/single', 'eventId'=>$shere->eventId])?>" >
+        
           <img class="card-img-top"
-            src="<?= Yii::$app->request->baseUrl ?>/images/events/event-1.jpg" 
+      
+          src="<?= '/../tiketa/backend/web/'.$shere->posters[0]->imagePath?>"
             alt="Card image cap">
             <div class="middle">  <div class="tag-date"><?= $shere['evenDate'] ?></div></div>
           <div class="card-body">
@@ -124,8 +126,9 @@ $party = Events::find()->joinWith('posters')->all();
         <a href="<?= Url::to(['site/single', 'eventId'=>$shere->eventId])?>" >
               <a href="<?= Url::to(['site/single', 'eventId'=>$shere->eventId])?>">
           <img class="card-img-top"
-            src="<?= Yii::$app->request->baseUrl ?>/images/events/event-1.jpg" 
+          src="<?= '/../tiketa/backend/web/'.$shere->posters[0]->imagePath?>"
             alt="Card image cap">
+
             <div class="middle">  <div class="tag-date"><?= $shere['evenDate'] ?></div></div>
           <div class="card-body">
             <h4 class="card-title"><?= $shere['eventName'] ?></h4>

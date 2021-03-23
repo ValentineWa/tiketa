@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 ?>
 <header class="main-header">
         <!-- Logo -->
@@ -46,7 +47,7 @@ use yii\helpers\Html;
                             <?= Html::img('@web/img/user3-128x128.jpg', ['class' => 'img-circle', 'alt'=>'User Image']) ?>
                           </div>
                           <h4>
-                            AdminLTE Design Team
+                            Waweru Design Team
                             <small><i class="fa fa-clock-o"></i> 2 hours</small>
                           </h4>
                           <p>Why not buy a new awesome theme?</p>
@@ -208,14 +209,14 @@ use yii\helpers\Html;
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<?= Html::img('@web/img/user2-160x160.jpg', ['class' => 'user-image', 'alt'=>'User Image']) ?>
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span class="hidden-xs"><?= ucfirst(Yii::$app->user->identity->username)?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <?= Html::img('@web/img/user2-160x160.jpg', ['class' => 'img-circle', 'alt'=>'User Image']) ?>
                     <p>
-                      Alexander Pierce - Web Developer
+                    <?= ucfirst(Yii::$app->user->identity->username)?> - Web Developer
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
@@ -237,7 +238,7 @@ use yii\helpers\Html;
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="<?= Url::to(['site/logout'])?>" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
